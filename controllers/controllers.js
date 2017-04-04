@@ -24,8 +24,9 @@ function selectAllAreas (req, res) {
 function selectRestaurantsById (req, res) {
   db.query(restaurantsById(req.params.area_id))
     .then(rows => {
+      rows = rows.reduce((acc, row) => {acc[row.id] = row; return acc;}, {});
       res.status(200).json({restaurants: rows});
-    })
+      })
     .catch(err => {
       console.log(err);
     });
