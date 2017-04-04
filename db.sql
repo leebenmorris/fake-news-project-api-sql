@@ -33,6 +33,14 @@ CREATE TABLE ratings (
     FOREIGN KEY (restaurant_id) REFERENCES restaurants(id)
 );
 
+-- CREATE TABLE restaurants_areas (
+--     id SERIAL PRIMARY KEY,
+--     restaurant_id INT NOT NULL,
+--     area_id INT NOT NULL,
+--     FOREIGN KEY (restaurant_id) REFERENCES restaurants(id),
+--     FOREIGN KEY (area_id) REFERENCES areas(id)
+-- );
+
 INSERT INTO areas (area)
     VALUES ('Stockport'), ('Central Manchester'), ('Sale'), ('Failsworth'), ('Eccles'), ('Ashton-under-Lyne');
 

@@ -10,4 +10,6 @@ router.get('/', function (request, response) {
 
 router.get('/areas', controller.selectAllAreas);
 
+router.get('/areas/:area_id/restaurants', controller.selectRestaurantsById);
+
 module.exports = router;

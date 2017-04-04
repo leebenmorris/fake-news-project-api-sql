@@ -3,8 +3,16 @@ const pgp = require('pg-promise')({promiseLib: bluebird});
 const dbCredentials = require('../db_config.js');
 const db = pgp(dbCredentials);
 
+const allAreas = 'SELECT * FROM areas';
+
+const restaurantsById = id =>
+  `SELECT * FROM restaurants
+   WHERE area_id = ${id}`;
+
+
+
 function selectAllAreas (req, res) {
-  db.query('SELECT * FROM areas')
+  db.query(allAreas)
     .then(rows => {
       res.status(200).json({areas: rows});
     })
@@ -13,6 +21,17 @@ function selectAllAreas (req, res) {
     });
 }
 
+function selectRestaurantsById (req, res) {
+  db.query(restaurantsById(req.params.area_id))
+    .then(rows => {
+      res.status(200).json({restaurants: rows});
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
 module.exports = {
-  selectAllAreas
+  selectAllAreas,
+  selectRestaurantsById
 };
