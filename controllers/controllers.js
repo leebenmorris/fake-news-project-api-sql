@@ -5,9 +5,11 @@ const db = pgp(dbCredentials);
 
 const allAreas = 'SELECT * FROM areas';
 
-const restaurantsById = id =>
+const findRestaurantsByAreaId = id =>
   `SELECT * FROM restaurants
    WHERE area_id = ${id}`;
+
+
 
 
 
@@ -21,8 +23,8 @@ function selectAllAreas (req, res) {
     });
 }
 
-function selectRestaurantsById (req, res) {
-  db.query(restaurantsById(req.params.area_id))
+function selectRestaurantsByAreaId (req, res) {
+  db.query(findRestaurantsByAreaId(req.params.area_id))
     .then(rows => {
       rows = rows.reduce((acc, row) => {acc[row.id] = row; return acc;}, {});
       res.status(200).json({restaurants: rows});
@@ -32,7 +34,20 @@ function selectRestaurantsById (req, res) {
     });
 }
 
+function postRestaurantByAreaId (req, res) {
+  db.one(
+      'INSERT INTO restaurants (name, area_id, cuisine, website) VALUES ($1, $2, $3, $4) returning *', 
+      [req.body.name, req.params.area_id, req.body.cuisine, req.body.website])
+      .then(restaurant => {
+      res.status(200).json({posted: restaurant})
+    })
+      .catch(err => {
+        console.log(err);
+    });
+}
+
 module.exports = {
   selectAllAreas,
-  selectRestaurantsById
+  selectRestaurantsByAreaId,
+  postRestaurantByAreaId
 };
