@@ -13,8 +13,8 @@ router.get('/areas', controller.selectAllAreas);
 
 router.get('/areas/:area_id/restaurants',controller.selectRestaurantsByAreaId);
 
-
-
 router.post('/areas/:area_id/restaurants', controller.postRestaurantByAreaId);
+
+router.get('/restaurants/:restaurant_id/comments', controller.selectCommentsByRestaurantId);
 
 module.exports = router;

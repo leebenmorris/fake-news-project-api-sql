@@ -46,8 +46,24 @@ function postRestaurantByAreaId (req, res) {
     });
 }
 
+function selectCommentsByRestaurantId (req, res) {
+  db.task(t => {
+    return t.one('SELECT * FROM restaurants WHERE id = $1', req.params.restaurant_id)
+      .then(restaurant => {
+        return t.any('SELECT * FROM comments WHERE restaurant_id = $1', restaurant.id);
+      });
+  })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+}
+
 module.exports = {
   selectAllAreas,
   selectRestaurantsByAreaId,
-  postRestaurantByAreaId
+  postRestaurantByAreaId,
+  selectCommentsByRestaurantId
 };
