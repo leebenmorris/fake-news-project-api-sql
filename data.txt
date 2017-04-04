@@ -1,0 +1,63 @@
+DROP DATABASE
+CREATE DATABASE
+You are now connected to database "restaurants_api" as user "samcaine".
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 6
+INSERT 0 12
+INSERT 0 24
+ id |        area        
+----+--------------------
+  1 | Stockport
+  2 | Central Manchester
+  3 | Sale
+  4 | Failsworth
+  5 | Eccles
+  6 | Ashton-under-Lyne
+(6 rows)
+
+ id |          name           | area_id |    cuisine    |                         website                         
+----+-------------------------+---------+---------------+---------------------------------------------------------
+  1 | Curry Culture           |       1 | Indian        | www.curry-culture.com
+  2 | The Midway              |       1 | Mediterranean | www.themidway.co.uk
+  3 | Teppanyaki Chinatown    |       2 | Japanese      | www.teppanyakichinatown.com
+  4 | Asha's                  |       2 | Indian        | www.ashasrestaurant.co.uk
+  5 | Bianco Pizza and Coffee |       3 | Italian       | www.barbianco.webnode.it
+  6 | Madras Spice            |       3 | Indian        | https://www.facebook.com/Madras-Spice-1022871834424199/
+  7 | The Old School BBQ Bus  |       4 | American      | https://www.facebook.com/Theoldschoolbbqbus
+  8 | Gossip                  |       4 | Thai          | www.gossiponbroadway.com
+  9 | Smiths                  |       5 | British       | www.smithsrestaurant.net
+ 10 | La Turka Bistro         |       5 | Turkish       | www.laturka.co.uk
+ 11 | Mozaic Cafe and Deli    |       6 | Mediterranean | www.cafemozaic.co.uk
+ 12 | Pinocchio Ristorante    |       6 | Italian       | www.pinocchiorestaurantashton.com
+(12 rows)
+
+ id | restaurant_id |                                       body                                        | created_at 
+----+---------------+-----------------------------------------------------------------------------------+------------
+  1 |             1 | Great curry!                                                                      | 2017-04-04
+  2 |             1 | Terrible curry!                                                                   | 2017-04-04
+  3 |             2 | Foreign muck.                                                                     | 2017-04-04
+  4 |             2 | Delicious!                                                                        | 2017-04-04
+  5 |             3 | Good sushi!                                                                       | 2017-04-04
+  6 |             3 | Reminded me of my trip to Tokyo!!! :D                                             | 2017-04-04
+  7 |             4 | Much better than Curry Culture                                                    | 2017-04-04
+  8 |             4 | Like used lumpy engine oil                                                        | 2017-04-04
+  9 |             5 | Lovely margherita                                                                 | 2017-04-04
+ 10 |             5 | nice                                                                              | 2017-04-04
+ 11 |             6 | Too spicey!!!                                                                     | 2017-04-04
+ 12 |             6 | My favourite indian in all of Manchester, much better than Curry Culutre          | 2017-04-04
+ 13 |             7 | you wait all morning for an old school bbq bus and then two come at once          | 2017-04-04
+ 14 |             7 | too sweet                                                                         | 2017-04-04
+ 15 |             8 | very quiet, no atmosphere                                                         | 2017-04-04
+ 16 |             8 | great pad thai                                                                    | 2017-04-04
+ 17 |             9 | makes me proud to be british                                                      | 2017-04-04
+ 18 |             9 | makes me ashamed to be British                                                    | 2017-04-04
+ 19 |            10 | lovely kebab                                                                      | 2017-04-04
+ 20 |            10 | lovely kebabs                                                                     | 2017-04-04
+ 21 |            11 | nice coffee, terrible deli                                                        | 2017-04-04
+ 22 |            11 | not very authentic                                                                | 2017-04-04
+ 23 |            12 | couldnt find the website so didnt bother                                          | 2017-04-04
+ 24 |            12 | Pinocchios not doing much for his reputation as an honest boy. Fresh meat my arse | 2017-04-04
+(24 rows)
+
