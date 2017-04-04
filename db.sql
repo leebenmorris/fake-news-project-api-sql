@@ -21,7 +21,16 @@ CREATE TABLE comments (
     id SERIAL PRIMARY KEY, 
     restaurant_id INT,
     body VARCHAR(255),
-    created_at DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
+    created_at DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (restaurant_id) REFERENCES restaurants(id)
+);
+
+CREATE TABLE ratings (
+    id SERIAL PRIMARY KEY,
+    restaurant_id INT,
+    rating INT CHECK (rating >= 1 AND rating <= 5),
+    created_at DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (restaurant_id) REFERENCES restaurants(id)
 );
 
 INSERT INTO areas (area)
@@ -55,10 +64,22 @@ INSERT INTO comments (restaurant_id, body)
     (11, 'nice coffee, terrible deli'), (11, 'not very authentic'),
     (12, 'couldnt find the website so didnt bother'), (12, 'Pinocchios not doing much for his reputation as an honest boy. Fresh meat my arse');
 
-
-
-
+INSERT INTO ratings (restaurant_id, rating)
+    VALUES
+        (1, 5), (1, 3), (1, 1),
+        (2, 3), (2, 5), (2, 2),
+        (3, 2), (3, 4), (3, 1),
+        (4, 2), (4, 5), (4, 4),
+        (5, 4), (5, 3), (5, 2),
+        (6, 4), (6, 2), (6, 3),
+        (7, 5), (7, 2), (7, 5),
+        (8, 2), (8, 3), (8, 4),
+        (9, 1), (9, 2), (9, 1),
+        (10, 5), (10, 4), (10, 5),
+        (11, 3), (11, 2), (11, 3),
+        (12, 1), (12, 3), (12, 2);
 
 SELECT * FROM areas;
 SELECT * FROM restaurants;
 SELECT * FROM comments;
+SELECT * FROM ratings;
