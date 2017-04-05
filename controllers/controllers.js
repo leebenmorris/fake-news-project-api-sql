@@ -22,8 +22,12 @@ function selectRestaurantsByAreaId(req, res) {
         function (restaurant, cb) {
           db.any('SELECT COUNT(*) FROM comments WHERE restaurant_id = $1', restaurant.id)
             .then(commentsCount => {
-              restaurant.comment_count = +commentsCount[0].count;
-              cb(null, restaurant);
+              db.any('SELECT AVG(rating) FROM ratings WHERE restaurant_id = $1', restaurant.id)
+                .then(ratingsAvg => {
+                  restaurant.comment_count = +commentsCount[0].count;
+                  restaurant.average_rating = +(+ratingsAvg[0].avg).toFixed(1);
+                  cb(null, restaurant);
+                });
             });
         },
         function (err, docs) {
