@@ -87,7 +87,9 @@ INSERT INTO ratings (restaurant_id, rating)
         (11, 3), (11, 2), (11, 3),
         (12, 1), (12, 3), (12, 2);
 
-SELECT * FROM areas;
-SELECT * FROM restaurants;
-SELECT * FROM comments;
-SELECT * FROM ratings;
+-- SELECT * FROM areas;
+-- SELECT * FROM restaurants;
+-- SELECT * FROM comments;
+-- SELECT * FROM ratings;
+SELECT COUNT(*) FROM ratings
+WHERE rating = 5;
