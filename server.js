@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 
 app.use('/api', apiRoutes);
 
+app.use('/*', (req, res) => {
+  res.status(404).send({error: '404 - Page not found'});
+});
+
 app.listen(PORT, () =>  {
     console.log(`listening on port ${PORT}`);
 });
