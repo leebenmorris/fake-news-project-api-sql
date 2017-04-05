@@ -18,4 +18,6 @@ router.get('/restaurants/:restaurant_id/comments', controller.selectCommentsByRe
 
 router.get('/restaurants/:restaurant_id/ratings', controller.selectRatingsByRestaurantId);
 
+router.post('/restaurants/:restaurant_id/comments', controller.postCommentByRestaurantId);
+
 module.exports = router;
