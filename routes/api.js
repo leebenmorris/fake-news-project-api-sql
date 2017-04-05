@@ -16,4 +16,6 @@ router.post('/areas/:area_id/restaurants', controller.postRestaurantByAreaId);
 
 router.get('/restaurants/:restaurant_id/comments', controller.selectCommentsByRestaurantId);
 
+router.get('/restaurants/:restaurant_id/ratings', controller.selectRatingsByRestaurantId);
+
 module.exports = router;

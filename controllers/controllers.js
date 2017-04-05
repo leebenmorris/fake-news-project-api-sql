@@ -61,9 +61,25 @@ function selectCommentsByRestaurantId(req, res) {
     });
 }
 
+function selectRatingsByRestaurantId (req, res) {
+   db.one('SELECT * FROM restaurants WHERE id = $1', req.params.restaurant_id)
+    .then(restaurant => {
+      db.any('SELECT * FROM ratings WHERE restaurant_id = $1', restaurant.id)
+        .then(ratingRows => {
+          const ratings = ratingRows.reduce((acc, row) => { acc[row.id] = row; return acc; }, {});
+          restaurant.ratings = ratings;
+          res.status(200).send(restaurant);
+        });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
 module.exports = {
   selectAllAreas,
   selectRestaurantsByAreaId,
   postRestaurantByAreaId,
-  selectCommentsByRestaurantId
+  selectCommentsByRestaurantId,
+  selectRatingsByRestaurantId
 };
