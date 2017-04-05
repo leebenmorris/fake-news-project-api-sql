@@ -76,21 +76,21 @@ function selectRatingsByRestaurantId (req, res) {
     });
 }
 
-//  db.one(
-//     'INSERT INTO restaurants (name, area_id, cuisine, website) VALUES ($1, $2, $3, $4) returning *',
-//     [req.body.name, req.params.area_id, req.body.cuisine, req.body.website])
-//     .then(restaurant => {
-//       res.status(200).json({ posted: restaurant });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// }
 
 function postCommentByRestaurantId (req, res) {
   db.one('INSERT INTO comments (restaurant_id, body) VALUES ($1, $2) returning *', [req.params.restaurant_id, req.body.comment])
   .then(comment => {
     res.status(200).json({posted: comment});
+  })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+function postRatingByRestaurantId (req, res) {
+  db.one('INSERT INTO ratings (restaurant_id, rating) VALUES ($1, $2) returning *', [req.params.restaurant_id, req.body.rating])
+  .then(rating => {
+    res.status(200).json({posted: rating});
   })
     .catch(err => {
       console.log(err);
@@ -103,5 +103,6 @@ module.exports = {
   postRestaurantByAreaId,
   selectCommentsByRestaurantId,
   selectRatingsByRestaurantId,
-  postCommentByRestaurantId
+  postCommentByRestaurantId,
+  postRatingByRestaurantId
 };

@@ -20,4 +20,6 @@ router.get('/restaurants/:restaurant_id/ratings', controller.selectRatingsByRest
 
 router.post('/restaurants/:restaurant_id/comments', controller.postCommentByRestaurantId);
 
+router.post('/restaurants/:restaurant_id/ratings', controller.postRatingByRestaurantId);
+
 module.exports = router;
