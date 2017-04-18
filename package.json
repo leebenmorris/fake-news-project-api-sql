@@ -1,8 +1,7 @@
 {
-  "name": "restaurant-rating-sprint",
+  "name": "fake-news-server-sql",
   "version": "1.0.0",
-  "description": "## A micro [yelp](https://www.yelp.co.uk/c/manchester/restaurants) clone API using Express and SQL",
-  "main": "index.js",
+  "description": "",
   "dependencies": {
     "async": "^2.3.0",
     "bluebird": "^3.5.0",
@@ -10,19 +9,8 @@
     "express": "^4.15.2",
     "pg-promise": "^5.6.4"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/icellusedkars/wk08sprint02_rated_restaurants_Feb2017.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/icellusedkars/wk08sprint02_rated_restaurants_Feb2017/issues"
-  },
-  "homepage": "https://github.com/icellusedkars/wk08sprint02_rated_restaurants_Feb2017#readme"
+    "dev": "nodemon server.js"
+  }
 }
