@@ -1,1 +1,1 @@
-module.exports = 'postgres://localhost:5432/restaurants_api';
+module.exports = 'postgres://localhost:5432/fake_news_api';

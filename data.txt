@@ -1,0 +1,13 @@
+DROP DATABASE
+CREATE DATABASE
+You are now connected to database "fake_news_api" as user "lee".
+CREATE TABLE
+INSERT 0 4
+ id | first_name | last_name |  username   | password |       email       | moderator | join_date  
+----+------------+-----------+-------------+----------+-------------------+-----------+------------
+  1 | Davey      | Joses     | djones      | dj2017   | dj@gmail.com      | t         | 2017-04-18
+  2 | Dewe       | Lilly     | lillypod    | fgloki   | lilly@gmail.co.uk | t         | 2017-04-18
+  3 | Matty      | Mathews   | mattythecow | jdcndsc  | matty@gmil.co.uk  | t         | 2017-04-18
+  4 | HellCat    | tilly     | fireHawk    | sansjsdn | hellcat@gmail.com | f         | 2017-04-18
+(4 rows)
+
